@@ -17,11 +17,9 @@ function handleInput() {
 
 // Recoge pista
 const getClueText = document.querySelector('.clue');
-console.log(getClueText);
 
 // Compara números
 function compareNumbers() {
-  debugger;
   if (parseInt(getInput.value) > 100 || parseInt(getInput.value) < 1) {
     getClueText.innerHTML = 'El número debe estar entre 1 y 100';
   } else if (parseInt(getInput.value) === randomNumber) {
@@ -32,10 +30,26 @@ function compareNumbers() {
     getClueText.innerHTML = 'Demasiado bajo';
   }
 }
+
+//Recoge counter y counter-message
+const getCounterMessage = document.querySelector('.count-message');
+const getCounter = document.querySelector('.counter');
+getCounterNumber = parseInt(getCounter.innerHTML);
+
+//Suma 1 a el número de intentos
+let counterNumber = 0;
+function sumCounterNumber() {
+  counterNumber = counterNumber + 1;
+  getCounterMessage.innerHTML = `Número de intentos: ${counterNumber}`;
+}
+
+// Escucha el botón y ejecuta las funciones de recoger value del input, comparar los números y pintar la pista
 function handleButton() {
   event.preventDefault();
   handleInput();
   compareNumbers();
+  debugger;
+  sumCounterNumber();
 }
 
 // Escucha button
