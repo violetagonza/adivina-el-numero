@@ -43,12 +43,11 @@ function sumCounterNumber() {
   getCounterMessage.innerHTML = `Número de intentos: ${counterNumber}`;
 }
 
-// Escucha el botón y ejecuta las funciones de recoger value del input, comparar los números y pintar la pista
+// Escucha el botón y ejecuta las funciones de recoger value del input, comparar los números, pintar la pista, contar los intentos y pintarlos en el segundo párrafo
 function handleButton() {
   event.preventDefault();
   handleInput();
   compareNumbers();
-  debugger;
   sumCounterNumber();
 }
 
