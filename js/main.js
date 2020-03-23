@@ -21,13 +21,13 @@ const getClueText = document.querySelector('.clue');
 // Compara números
 function compareNumbers() {
   if (parseInt(getInput.value) > 100 || parseInt(getInput.value) < 1) {
-    getClueText.innerHTML = 'El número debe estar entre 1 y 100';
+    paintInHTML(getClueText, 'El número debe estar entre 1 y 100');
   } else if (parseInt(getInput.value) === randomNumber) {
-    getClueText.innerHTML = 'Has ganado campeona!!!';
+    paintInHTML(getClueText, 'Has ganado campeona!!!');
   } else if (getInput.value > randomNumber) {
-    getClueText.innerHTML = 'Demasiado alto';
+    paintInHTML(getClueText, 'Demasiado alto');
   } else if (getInput.value < randomNumber) {
-    getClueText.innerHTML = 'Demasiado bajo';
+    paintInHTML(getClueText, 'Demasiado bajo');
   }
 }
 
@@ -40,7 +40,7 @@ getCounterNumber = parseInt(getCounter.innerHTML);
 let counterNumber = 0;
 function sumCounterNumber() {
   counterNumber = counterNumber + 1;
-  getCounterMessage.innerHTML = `Número de intentos: ${counterNumber}`;
+  paintInHTML(getCounterMessage, `Número de intentos: ${counterNumber}`);
 }
 
 // Escucha el botón y ejecuta las funciones de recoger value del input, comparar los números, pintar la pista, contar los intentos y pintarlos en el segundo párrafo
@@ -53,3 +53,7 @@ function handleButton() {
 
 // Escucha button
 button.addEventListener('click', handleButton);
+
+function paintInHTML(element, string) {
+  element.innerHTML = string;
+}
